@@ -5,9 +5,12 @@
  */
 package gescom;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import static java.lang.System.exit;
+import static javafx.scene.paint.Color.color;
+import static javafx.scene.paint.Color.color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -55,10 +58,8 @@ public class Menu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
+        bord = new javax.swing.JPanel();
+        recoit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -109,6 +110,12 @@ public class Menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Label1MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Label1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Label1MouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout Panel1Layout = new javax.swing.GroupLayout(Panel1);
@@ -128,10 +135,16 @@ public class Menu extends javax.swing.JFrame {
         Label2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         Label2.setForeground(new java.awt.Color(255, 255, 255));
         Label2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label2.setText("APPROVISIONNEMENT");
+        Label2.setText("EFFECTUER UNE VENTE");
         Label2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Label2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Label2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Label2MouseExited(evt);
             }
         });
 
@@ -157,6 +170,12 @@ public class Menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Label3MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Label3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Label3MouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout Panel3Layout = new javax.swing.GroupLayout(Panel3);
@@ -180,6 +199,12 @@ public class Menu extends javax.swing.JFrame {
         Label4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Label4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Label4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Label4MouseExited(evt);
             }
         });
 
@@ -205,6 +230,12 @@ public class Menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Label5MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Label5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Label5MouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout Panel5Layout = new javax.swing.GroupLayout(Panel5);
@@ -229,6 +260,12 @@ public class Menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Label6MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Label6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Label6MouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout Panel6Layout = new javax.swing.GroupLayout(Panel6);
@@ -252,6 +289,12 @@ public class Menu extends javax.swing.JFrame {
         Label7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Label7MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Label7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Label7MouseExited(evt);
             }
         });
 
@@ -351,60 +394,23 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel7.setBackground(new java.awt.Color(76, 155, 228));
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
+        javax.swing.GroupLayout bordLayout = new javax.swing.GroupLayout(bord);
+        bord.setLayout(bordLayout);
+        bordLayout.setHorizontalGroup(
+            bordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 807, Short.MAX_VALUE)
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 193, Short.MAX_VALUE)
+        bordLayout.setVerticalGroup(
+            bordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 717, Short.MAX_VALUE)
         );
 
-        jPanel8.setBackground(new java.awt.Color(76, 155, 228));
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 193, Short.MAX_VALUE)
-        );
-
-        jPanel9.setBackground(new java.awt.Color(76, 155, 228));
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 193, Short.MAX_VALUE)
-        );
-
-        jPanel10.setBackground(new java.awt.Color(76, 155, 228));
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 193, Short.MAX_VALUE)
-        );
+        recoit.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
+        recoit.setForeground(new java.awt.Color(76, 155, 228));
+        recoit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -412,42 +418,29 @@ public class Menu extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Panel0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(78, 78, 78)
+                        .addComponent(recoit, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Panel0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(386, 386, 386)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(518, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Panel0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(138, 138, 138))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(107, 107, 107)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(491, Short.MAX_VALUE)))
+                        .addGap(29, 29, 29))
+                    .addComponent(recoit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -476,8 +469,9 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         changercolor(Panel1);
         memecolor(Panel2,Panel3,Panel4,Panel5,Panel6,Panel7);
-        editetext(Label1);
+        editetext(Label1); 
         memetext(Label2,Label3,Label4,Label5,Label6,Label7);
+        recoit.setText(Label1.getText());
         
     }//GEN-LAST:event_Label1MouseClicked
 
@@ -487,6 +481,11 @@ public class Menu extends javax.swing.JFrame {
          memecolor(Panel1,Panel3,Panel4,Panel5,Panel6,Panel7);
          editetext(Label2);
         memetext(Label1,Label3,Label4,Label5,Label6,Label7);
+        recoit.setText(Label2.getText());
+        GesAchats achat = new GesAchats();
+        bord.setLayout(new BorderLayout());
+        bord.removeAll();
+        bord.add(achat);
     }//GEN-LAST:event_Label2MouseClicked
 
     private void Label3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label3MouseClicked
@@ -495,6 +494,13 @@ public class Menu extends javax.swing.JFrame {
          memecolor(Panel2,Panel1,Panel4,Panel5,Panel6,Panel7);
          editetext(Label3);
         memetext(Label2,Label1,Label4,Label5,Label6,Label7);
+        recoit.setText(Label3.getText());
+        approvisionnement appro = new approvisionnement();
+        bord.setLayout(new BorderLayout());
+        bord.removeAll();
+        bord.add(appro);
+        
+        
     }//GEN-LAST:event_Label3MouseClicked
 
     private void Label4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label4MouseClicked
@@ -503,6 +509,7 @@ public class Menu extends javax.swing.JFrame {
          memecolor(Panel2,Panel3,Panel1,Panel5,Panel6,Panel7);
          editetext(Label4);
         memetext(Label2,Label3,Label1,Label5,Label6,Label7);
+        recoit.setText(Label4.getText());
     }//GEN-LAST:event_Label4MouseClicked
 
     private void Label5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label5MouseClicked
@@ -511,6 +518,7 @@ public class Menu extends javax.swing.JFrame {
          memecolor(Panel2,Panel3,Panel4,Panel1,Panel6,Panel7);
          editetext(Label5);
         memetext(Label2,Label3,Label4,Label1,Label6,Label7);
+        recoit.setText(Label5.getText());
     }//GEN-LAST:event_Label5MouseClicked
 
     private void Label6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label6MouseClicked
@@ -519,6 +527,7 @@ public class Menu extends javax.swing.JFrame {
          memecolor(Panel2,Panel3,Panel4,Panel5,Panel1,Panel7);
          editetext(Label6);
         memetext(Label2,Label3,Label4,Label5,Label1,Label7);
+        recoit.setText(Label6.getText());
     }//GEN-LAST:event_Label6MouseClicked
 
     private void Label7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label7MouseClicked
@@ -527,7 +536,66 @@ public class Menu extends javax.swing.JFrame {
          memecolor(Panel2,Panel3,Panel4,Panel5,Panel6,Panel1);
          editetext(Label7);
         memetext(Label2,Label3,Label4,Label5,Label6,Label1);
+        recoit.setText(Label7.getText());
     }//GEN-LAST:event_Label7MouseClicked
+
+    private void Label1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label1MouseEntered
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Label1MouseEntered
+
+    private void Label1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label1MouseExited
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_Label1MouseExited
+
+    private void Label2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label2MouseEntered
+
+    private void Label2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label2MouseExited
+
+    private void Label3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label3MouseEntered
+
+    private void Label3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label3MouseExited
+
+    private void Label4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label4MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label4MouseEntered
+
+    private void Label4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label4MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label4MouseExited
+
+    private void Label5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label5MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label5MouseEntered
+
+    private void Label5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label5MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label5MouseExited
+
+    private void Label6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label6MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label6MouseEntered
+
+    private void Label6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label6MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label6MouseExited
+
+    private void Label7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label7MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label7MouseEntered
+
+    private void Label7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label7MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Label7MouseExited
 
     void changercolor(JPanel panel){
         panel.setBackground(new Color(76,155,228));
@@ -602,17 +670,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel Panel5;
     private javax.swing.JPanel Panel6;
     private javax.swing.JPanel Panel7;
+    private javax.swing.JPanel bord;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel recoit;
     // End of variables declaration//GEN-END:variables
 }

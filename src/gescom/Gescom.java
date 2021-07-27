@@ -16,6 +16,22 @@ public class Gescom {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Progressbare progress = new Progressbare();
+        progress.setVisible(true);
+        try{
+            for(int i=0;i<=100;i++){
+            Thread.sleep(20);
+            progress.Label.setText("Chargement des données "+i+"%");
+            progress.progressbar.setValue(i);
+            if(i==100){
+                Identification identification= new Identification();
+                identification.setVisible(true);
+                progress.setVisible(false);
+            }
+        }
+        }catch(Exception e){
+            
+        }
     }
     
 }
