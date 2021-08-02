@@ -105,7 +105,7 @@ public class Menu extends javax.swing.JFrame {
         Label1.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         Label1.setForeground(new java.awt.Color(255, 255, 255));
         Label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label1.setText("ADMINISTRATEUR");
+        Label1.setText("GUIDE D'UTILISATION");
         Label1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Label1MouseClicked(evt);
@@ -165,7 +165,7 @@ public class Menu extends javax.swing.JFrame {
         Label3.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         Label3.setForeground(new java.awt.Color(255, 255, 255));
         Label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label3.setText("VENDRE");
+        Label3.setText("APPROVISIONNEMENT");
         Label3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Label3MouseClicked(evt);
@@ -195,7 +195,7 @@ public class Menu extends javax.swing.JFrame {
         Label4.setFont(new java.awt.Font("Tempus Sans ITC", 0, 18)); // NOI18N
         Label4.setForeground(new java.awt.Color(255, 255, 255));
         Label4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label4.setText("PAIE");
+        Label4.setText("FABRICATION");
         Label4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Label4MouseClicked(evt);
