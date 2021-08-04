@@ -7,6 +7,7 @@ package gescom;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.awt.Color;
+import java.awt.Event;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -26,7 +27,6 @@ public class GesAchats extends javax.swing.JPanel {
     public GesAchats() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,6 +111,9 @@ public class GesAchats extends javax.swing.JPanel {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 quantitéKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                quantitéKeyReleased(evt);
+            }
         });
 
         Annuler.setBackground(new java.awt.Color(255, 255, 255));
@@ -187,6 +190,9 @@ public class GesAchats extends javax.swing.JPanel {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 prixUnitaireKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                prixUnitaireKeyReleased(evt);
+            }
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -235,6 +241,9 @@ public class GesAchats extends javax.swing.JPanel {
         contact.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 contactKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                contactKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 contactKeyTyped(evt);
@@ -391,7 +400,7 @@ public class GesAchats extends javax.swing.JPanel {
     private void AjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AjouterMouseClicked
         // TODO add your handling code here:
   
-        int entier=Integer.parseInt(contact.getText());
+        
          if(prixUnitaire.getText().length()<=2 || quantité.getText().length()<2 || nom.getText().length()<3 || contact.getText().length()<9){
             prixUnitaire.setText("0");
             quantité.setText("0");
@@ -399,9 +408,10 @@ public class GesAchats extends javax.swing.JPanel {
             Integer quantite=Integer.parseInt(quantité.getText());
             Integer totale=unitaire * quantite;
             total.setText(totale+"FCFA");
-            ajoutErreur ajerreur=new ajoutErreur();
+            Erreur ajerreur=new Erreur();
             ajerreur.setVisible(true);
         }else{
+            Integer entier=Integer.parseInt(contact.getText());
             Integer unitaire=Integer.parseInt(prixUnitaire.getText());
             Integer quantite=Integer.parseInt(quantité.getText());
             Integer totale=unitaire * quantite;
@@ -416,6 +426,7 @@ public class GesAchats extends javax.swing.JPanel {
                 requette.setInt(4, quantite);
                 requette.setInt(5, unitaire);
                 requette.setInt(6, totale);
+                dateVente.setDate(new java.util.Date( ));
                 requette.setString(7, dateVente.getDate().toString());
                 requette.executeUpdate();
                 
@@ -457,21 +468,42 @@ public class GesAchats extends javax.swing.JPanel {
 
     private void Annuler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Annuler1ActionPerformed
         // TODO add your handling code here:
+        nom.setText("");
+        contact.setText("");
+        quantité.setText("");
+        prixUnitaire.setText("");
+        total.setText("");
+        R.setText("");
     }//GEN-LAST:event_Annuler1ActionPerformed
 
     private void contactKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode()!=1 && evt.getKeyCode()!=2 && evt.getKeyCode()!=3 && evt.getKeyCode()!=4 && evt.getKeyCode()!=5 && evt.getKeyCode()!=6 && evt.getKeyCode()!=7 && evt.getKeyCode()!=8 && evt.getKeyCode()!=9 && evt.getKeyCode()!=0){
-            JOptionPane.showMessageDialog(this, "veuiellez entrer le bon type de donne");
-        }
-        
-
     }//GEN-LAST:event_contactKeyPressed
 
     private void contactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_contactKeyTyped
 
+    private void quantitéKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantitéKeyReleased
+        // TODO add your handling code here:
+        if(evt.getKeyChar()!='1' && evt.getKeyChar()!='2' && evt.getKeyChar()!='3' && evt.getKeyChar()!='4' && evt.getKeyChar()!='5' && evt.getKeyChar()!='6' && evt.getKeyChar()!='7' && evt.getKeyChar()!='8' && evt.getKeyChar()!='9' && evt.getKeyChar()!='0' && evt.getKeyCode()!= Event.BACK_SPACE && evt.getKeyCode()!= Event.PGUP){
+           quantité.setText("");   
+        }
+    }//GEN-LAST:event_quantitéKeyReleased
+
+    private void contactKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactKeyReleased
+        // TODO add your handling code here:
+        if(evt.getKeyChar()!='1' && evt.getKeyChar()!='2' && evt.getKeyChar()!='3' && evt.getKeyChar()!='4' && evt.getKeyChar()!='5' && evt.getKeyChar()!='6' && evt.getKeyChar()!='7' && evt.getKeyChar()!='8' && evt.getKeyChar()!='9' && evt.getKeyChar()!='0' && evt.getKeyCode()!= Event.BACK_SPACE && evt.getKeyCode()!= Event.PGUP){
+           contact.setText("");   
+        }
+    }//GEN-LAST:event_contactKeyReleased
+
+    private void prixUnitaireKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_prixUnitaireKeyReleased
+        // TODO add your handling code here:
+        if(evt.getKeyChar()!='1' && evt.getKeyChar()!='2' && evt.getKeyChar()!='3' && evt.getKeyChar()!='4' && evt.getKeyChar()!='5' && evt.getKeyChar()!='6' && evt.getKeyChar()!='7' && evt.getKeyChar()!='8' && evt.getKeyChar()!='9' && evt.getKeyChar()!='0' && evt.getKeyCode()!= Event.BACK_SPACE && evt.getKeyCode()!= Event.PGUP){
+           prixUnitaire.setText("");   
+        }
+    }//GEN-LAST:event_prixUnitaireKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ajouter;

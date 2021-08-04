@@ -6,6 +6,12 @@
 package gescom;
 
 import java.awt.Color;
+import java.awt.Event;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,10 +40,12 @@ public class Fabrication extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         quantité = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        dateFabrication = new com.toedter.calendar.JDateChooser();
         Annuler = new javax.swing.JButton();
         Enregistrer = new javax.swing.JButton();
-        combobox = new javax.swing.JComboBox<>();
+        produit = new javax.swing.JComboBox<>();
+        quantité_Ciment = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(807, 717));
         setName(""); // NOI18N
@@ -51,23 +59,31 @@ public class Fabrication extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(78, 155, 228));
-        jLabel3.setText("Quantité");
+        jLabel3.setText("Quantité de Parpaings produit");
 
         quantité.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        quantité.setForeground(new java.awt.Color(78, 155, 228));
+        quantité.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        quantité.setToolTipText("");
+        quantité.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                quantitéKeyReleased(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(78, 155, 228));
         jLabel5.setText("Date de fabrication");
 
-        jDateChooser1.setBackground(new java.awt.Color(78, 155, 228));
-        jDateChooser1.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
-        jDateChooser1.setFocusable(false);
-        jDateChooser1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        dateFabrication.setBackground(new java.awt.Color(78, 155, 228));
+        dateFabrication.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        dateFabrication.setFocusable(false);
+        dateFabrication.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         Annuler.setBackground(new java.awt.Color(255, 255, 255));
         Annuler.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Annuler.setForeground(new java.awt.Color(76, 155, 228));
-        Annuler.setText("Annuler");
+        Annuler.setText("Reset");
         Annuler.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 AnnulerMouseEntered(evt);
@@ -103,14 +119,29 @@ public class Fabrication extends javax.swing.JPanel {
             }
         });
 
-        combobox.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        combobox.setForeground(new java.awt.Color(76, 155, 228));
-        combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Parpaing 10", "Parpaing 12", "Parpaing 15", "Parpaing  20", "Hourdis" }));
-        combobox.addActionListener(new java.awt.event.ActionListener() {
+        produit.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        produit.setForeground(new java.awt.Color(76, 155, 228));
+        produit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Parpaing 10", "Parpaing 12", "Parpaing 15", "Parpaing  20", "Hourdis" }));
+        produit.setBorder(null);
+        produit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboboxActionPerformed(evt);
+                produitActionPerformed(evt);
             }
         });
+
+        quantité_Ciment.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        quantité_Ciment.setForeground(new java.awt.Color(78, 155, 228));
+        quantité_Ciment.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        quantité_Ciment.setToolTipText("");
+        quantité_Ciment.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                quantité_CimentKeyReleased(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(78, 155, 228));
+        jLabel4.setText("Quantité de Ciment Utiliser");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,28 +151,31 @@ public class Fabrication extends javax.swing.JPanel {
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(combobox, 0, 259, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(quantité, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(quantité_Ciment, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(110, 110, 110)
+                                .addComponent(Enregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(92, 92, 92)
+                                .addComponent(Annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(71, 71, 71)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(dateFabrication, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-                                .addGap(151, 151, 151))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(106, 106, 106)
-                                .addComponent(Enregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(137, 137, 137))
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(52, 52, 52))
+                            .addComponent(produit, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(71, 71, 71)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(quantité))))
+                .addGap(74, 74, 74))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,17 +186,21 @@ public class Fabrication extends javax.swing.JPanel {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(produit, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(quantité, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(98, 98, 98)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Enregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(238, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(quantité_Ciment, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateFabrication, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(85, 85, 85)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Enregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -191,12 +229,31 @@ public class Fabrication extends javax.swing.JPanel {
 
     private void AnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnnulerActionPerformed
         // TODO add your handling code here:
-        
         quantité.setText("");
+        quantité_Ciment.setText("");
     }//GEN-LAST:event_AnnulerActionPerformed
 
     private void EnregistrerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnregistrerMouseClicked
         // TODO add your handling code here:
+        if(quantité_Ciment.getText().length()<1||quantité.getText().length()<1){
+            JOptionPane.showMessageDialog(this, "vuiellez remplir tous les champs s'il vous plait");
+        }else{
+            try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/gescom", "root", "");
+            PreparedStatement requette=connection.prepareStatement("INSERT INTO fabrication (produit,quantite_parpaings,quantite_ciment,date_fabrication) VALUES (?,?,?,?)");
+            requette.setString(1, produit.getSelectedItem().toString());
+            int quantite=Integer.parseInt(quantité.getText());
+            requette.setInt(2, quantite);
+            int quantiteCiment=Integer.parseInt(quantité_Ciment.getText());
+            requette.setInt(3, quantiteCiment);
+            dateFabrication.setDate(new java.util.Date());
+            requette.setString(4, dateFabrication.getDate().toString());
+            requette.executeUpdate();
+        
+       }catch(SQLException e){
+           JOptionPane.showMessageDialog(this, e);
+       }     
+        }
     }//GEN-LAST:event_EnregistrerMouseClicked
 
     private void EnregistrerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnregistrerMouseEntered
@@ -215,22 +272,38 @@ public class Fabrication extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_EnregistrerActionPerformed
 
-    private void comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxActionPerformed
+    private void produitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produitActionPerformed
         // TODO add your handling code here:
-        String combo = combobox.getSelectedItem().toString();
+        String combo = produit.getSelectedItem().toString();
 
-    }//GEN-LAST:event_comboboxActionPerformed
+    }//GEN-LAST:event_produitActionPerformed
+
+    private void quantitéKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantitéKeyReleased
+        // TODO add your handling code here:
+        if(evt.getKeyChar()!='1' && evt.getKeyChar()!='2' && evt.getKeyChar()!='3' && evt.getKeyChar()!='4' && evt.getKeyChar()!='5' && evt.getKeyChar()!='6' && evt.getKeyChar()!='7' && evt.getKeyChar()!='8' && evt.getKeyChar()!='9' && evt.getKeyChar()!='0' && evt.getKeyCode()!= Event.BACK_SPACE && evt.getKeyCode()!= Event.PGUP){
+           quantité.setText("");   
+        }
+    }//GEN-LAST:event_quantitéKeyReleased
+
+    private void quantité_CimentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantité_CimentKeyReleased
+        // TODO add your handling code here:
+        if(evt.getKeyChar()!='1' && evt.getKeyChar()!='2' && evt.getKeyChar()!='3' && evt.getKeyChar()!='4' && evt.getKeyChar()!='5' && evt.getKeyChar()!='6' && evt.getKeyChar()!='7' && evt.getKeyChar()!='8' && evt.getKeyChar()!='9' && evt.getKeyChar()!='0' && evt.getKeyCode()!= Event.BACK_SPACE && evt.getKeyCode()!= Event.PGDN){
+           quantité_Ciment.setText("");   
+        }
+    }//GEN-LAST:event_quantité_CimentKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Annuler;
     private javax.swing.JButton Enregistrer;
-    private javax.swing.JComboBox<String> combobox;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser dateFabrication;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> produit;
     private javax.swing.JTextField quantité;
+    private javax.swing.JTextField quantité_Ciment;
     // End of variables declaration//GEN-END:variables
 }

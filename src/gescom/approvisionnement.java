@@ -6,6 +6,8 @@
 package gescom;
 
 import java.awt.Color;
+import java.awt.Event;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -69,15 +71,33 @@ public class approvisionnement extends javax.swing.JPanel {
         jLabel3.setText("Quantité");
 
         quantité.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        quantité.setForeground(new java.awt.Color(78, 155, 228));
+        quantité.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        quantité.setToolTipText("");
+        quantité.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                quantitéKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                quantitéKeyReleased(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(78, 155, 228));
         jLabel4.setText("Prix unitaire");
 
         prixUnitaire.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        prixUnitaire.setForeground(new java.awt.Color(78, 155, 228));
+        prixUnitaire.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         prixUnitaire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 prixUnitaireActionPerformed(evt);
+            }
+        });
+        prixUnitaire.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                prixUnitaireKeyReleased(evt);
             }
         });
 
@@ -189,16 +209,15 @@ public class approvisionnement extends javax.swing.JPanel {
                                 .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addComponent(Annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111)
-                        .addComponent(Calculer, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(305, 305, 305)
-                        .addComponent(Enregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(183, 183, 183)
+                .addComponent(Annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111)
+                .addComponent(Calculer, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Enregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(316, 316, 316))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,9 +247,9 @@ public class approvisionnement extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addComponent(Enregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -241,7 +260,7 @@ public class approvisionnement extends javax.swing.JPanel {
     private void AnnulerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AnnulerMouseClicked
         // TODO add your handling code here:
         if(prixUnitaire.getText().length()<3||quantité.getText().length()<1){
-            ajoutErreur ajer=new ajoutErreur();
+            Erreur ajer=new Erreur();
             ajer.setVisible(true);
         }else{
             Integer unitaire=Integer.parseInt(prixUnitaire.getText());
@@ -307,6 +326,30 @@ public class approvisionnement extends javax.swing.JPanel {
     private void EnregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnregistrerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EnregistrerActionPerformed
+
+    private void quantitéKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantitéKeyPressed
+        // TODO add your handling code here:
+       char lettre;
+       lettre=evt.getKeyChar();
+       String lettr;
+       if(lettre==1){
+           JOptionPane.showMessageDialog(this, "felicitation");
+       }
+    }//GEN-LAST:event_quantitéKeyPressed
+
+    private void quantitéKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantitéKeyReleased
+        // TODO add your handling code here:
+        if(evt.getKeyChar()!='1' && evt.getKeyChar()!='2' && evt.getKeyChar()!='3' && evt.getKeyChar()!='4' && evt.getKeyChar()!='5' && evt.getKeyChar()!='6' && evt.getKeyChar()!='7' && evt.getKeyChar()!='8' && evt.getKeyChar()!='9' && evt.getKeyChar()!='0' && evt.getKeyCode()!= Event.BACK_SPACE && evt.getKeyCode()!= Event.PGUP){
+           quantité.setText("");   
+        }
+    }//GEN-LAST:event_quantitéKeyReleased
+
+    private void prixUnitaireKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_prixUnitaireKeyReleased
+        // TODO add your handling code here:
+        if(evt.getKeyChar()!='1' && evt.getKeyChar()!='2' && evt.getKeyChar()!='3' && evt.getKeyChar()!='4' && evt.getKeyChar()!='5' && evt.getKeyChar()!='6' && evt.getKeyChar()!='7' && evt.getKeyChar()!='8' && evt.getKeyChar()!='9' && evt.getKeyChar()!='0' && evt.getKeyCode()!= Event.BACK_SPACE && evt.getKeyCode()!= Event.PGUP){
+           prixUnitaire.setText("");   
+        }
+    }//GEN-LAST:event_prixUnitaireKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

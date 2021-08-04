@@ -27,6 +27,7 @@ public class Gescom {
                 Identification identification= new Identification();
                 identification.setVisible(true);
                 progress.setVisible(false);
+                System.out.println(new java.util.Date( ));
             }
         }
         }catch(Exception e){

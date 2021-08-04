@@ -510,6 +510,10 @@ public class Menu extends javax.swing.JFrame {
          editetext(Label4);
         memetext(Label2,Label3,Label1,Label5,Label6,Label7);
         recoit.setText(Label4.getText());
+        Fabrication fabrication = new Fabrication();
+        bord.setLayout(new BorderLayout());
+        bord.removeAll();
+        bord.add(fabrication);
     }//GEN-LAST:event_Label4MouseClicked
 
     private void Label5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label5MouseClicked
